@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220728 14:50:38.104" rpa="false" schemaversion="3">
+<suite id="s1" name="amazonTests" source="C:\Users\AllanScala\documents\Projetos\cursoPython\amazon\amazonTests.robot">
+<test id="s1-t1" name="Caso de Teste 03 - Adicionar Produto no Carrinho" line="7">
+<kw name="Abrir Navegador" library="amazonResources" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220728 14:50:38.238" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220728 14:50:38.238" endtime="20220728 14:50:39.284"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:38.238" endtime="20220728 14:50:39.284"/>
+</kw>
+<kw name="Acessar a home page do site Amazon.com.br" library="amazonResources">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220728 14:50:39.285" level="INFO">Opening url 'http://www.amazon.com.br'</msg>
+<status status="PASS" starttime="20220728 14:50:39.284" endtime="20220728 14:50:40.543"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:39.284" endtime="20220728 14:50:40.543"/>
+</kw>
+<kw name="Digitar o nome de produto &quot;Xbox Series S&quot; no campo de pesquisa" library="amazonResources" sourcename="Digitar o nome de produto &quot;${PRODUTO}&quot; no campo de pesquisa">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${INPUT_SEARCH}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220728 14:50:40.543" endtime="20220728 14:50:40.561"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_SEARCH}</arg>
+<arg>${PRODUTO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220728 14:50:40.562" level="INFO">Typing text 'Xbox Series S' into text field 'twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20220728 14:50:40.562" endtime="20220728 14:50:40.666"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:40.543" endtime="20220728 14:50:40.666"/>
+</kw>
+<kw name="Clicar no botão de pesquisa" library="amazonResources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>nav-search-submit-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220728 14:50:40.667" level="INFO">Clicking button 'nav-search-submit-button'.</msg>
+<status status="PASS" starttime="20220728 14:50:40.667" endtime="20220728 14:50:41.934"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:40.666" endtime="20220728 14:50:41.934"/>
+</kw>
+<kw name="Verificar o resultado da pesquisa se está listando o produto &quot;Console Xbox Series S&quot;" library="amazonResources" sourcename="Verificar o resultado da pesquisa se está listando o produto &quot;${PRODUTO}&quot;">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${PRODUTO}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20220728 14:50:41.936" endtime="20220728 14:50:41.950"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:41.936" endtime="20220728 14:50:41.950"/>
+</kw>
+<kw name="Adicionar o produto &quot;Console Xbox Series S&quot; no carrinho" library="amazonResources">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//span[contains(text(), 'Console Xbox Series S')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220728 14:50:41.951" level="INFO">Clicking element '//span[contains(text(), 'Console Xbox Series S')]'.</msg>
+<status status="PASS" starttime="20220728 14:50:41.951" endtime="20220728 14:50:44.584"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>add-to-cart-button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220728 14:50:44.584" endtime="20220728 14:50:44.604"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>add-to-cart-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220728 14:50:44.604" level="INFO">Clicking element 'add-to-cart-button'.</msg>
+<status status="PASS" starttime="20220728 14:50:44.604" endtime="20220728 14:50:46.498"/>
+</kw>
+<status status="PASS" starttime="20220728 14:50:41.950" endtime="20220728 14:50:46.498"/>
+</kw>
+<kw name="Verificar se o produto &quot;Console Xbox Series S&quot; foi adicionado com sucesso" library="amazonResources">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Adicionado ao carrinho</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<msg timestamp="20220728 14:50:51.836" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220728 14:50:51.836" level="FAIL">Text 'Adicionado ao carrinho' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20220728 14:50:46.499" endtime="20220728 14:50:51.837"/>
+</kw>
+<status status="FAIL" starttime="20220728 14:50:46.499" endtime="20220728 14:50:51.837"/>
+</kw>
+<doc>Esse teste verifica a adição de um produto no carrinho de compras</doc>
+<tag>adicionar_carrinho</tag>
+<status status="FAIL" starttime="20220728 14:50:38.237" endtime="20220728 14:50:51.838">Text 'Adicionado ao carrinho' did not appear in 5 seconds.</status>
+</test>
+<status status="FAIL" starttime="20220728 14:50:38.105" endtime="20220728 14:50:51.838"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">adicionar_carrinho</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="amazonTests">amazonTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
